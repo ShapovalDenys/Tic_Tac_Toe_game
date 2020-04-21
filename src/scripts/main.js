@@ -73,6 +73,7 @@ function checkWinner() {
   if (numberOfMoves === 9) {
     message.style.display = 'block';
     winnerXO.style.display = 'block';
+    winnerX.style.display = 'none';
     game.style.opacity = 0.4;
     game.style['z-index'] = -1;
   }
