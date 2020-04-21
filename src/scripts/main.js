@@ -74,6 +74,8 @@ function checkWinner() {
     message.style.display = 'block';
     winnerXO.style.display = 'block';
     winnerX.style.display = 'none';
+    winnerO.style.display = 'none';
+    winnerAlert.style.display = 'none';
     game.style.opacity = 0.4;
     game.style['z-index'] = -1;
   }
