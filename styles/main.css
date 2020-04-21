@@ -57,6 +57,7 @@ body {
   display: none;
   text-align: center; }
 
+.winnerAlert,
 .winnerX,
 .winnerXO,
 .winnerO {

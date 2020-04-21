@@ -5,6 +5,7 @@ const message = document.querySelector('.alert');
 const winnerO = document.querySelector('.winnerO');
 const winnerX = document.querySelector('.winnerX');
 const winnerXO = document.querySelector('.winnerXO');
+const winnerAlert = document.querySelector('.winnerAlert');
 const button = document.querySelector('.button');
 
 for (let i = 0; i < 9; i++) {
@@ -19,7 +20,13 @@ let numberOfMoves = 0;
 
 function click() {
   if (event.target.innerHTML === 'x' || event.target.innerHTML === 'o') {
-    alert('Вибери іншу клітинку!');
+      message.style.display = 'block';
+      message.style.height = 120 + 'px';
+      winnerAlert.style.display = 'block';
+      button.style.display = 'none'
+      setTimeout(() => {
+      message.style.display = 'none';
+      }, 600);
   } else {
     if (event.target.className === 'block' && numberOfMoves % 2 === 0) {
       event.target.innerHTML = 'x';
