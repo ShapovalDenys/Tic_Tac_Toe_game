@@ -14,11 +14,11 @@ for (let i = 0; i < 9; i++) {
 
 const arrBlock = document.querySelectorAll('.block');
 
-game.addEventListener('click', click);
+game.addEventListener('click', handleClick);
 
 let numberOfMoves = 0;
 
-function click() {
+function handleClick() {
   if (event.target.innerHTML === 'x' || event.target.innerHTML === 'o') {
       message.style.display = 'block';
       message.style.height = 120 + 'px';
@@ -54,9 +54,8 @@ function checkWinner() {
     winnerX.style.display = 'block';
     game.style.opacity = 0.4;
     game.style['z-index'] = -1;
-  }
-
-  if ((arrBlock[0].innerHTML === 'o' && arrBlock[1].innerHTML === 'o' && arrBlock[2].innerHTML === 'o')
+    game.removeEventListener('click', handleClick);
+  } else if ((arrBlock[0].innerHTML === 'o' && arrBlock[1].innerHTML === 'o' && arrBlock[2].innerHTML === 'o')
   || (arrBlock[3].innerHTML === 'o' && arrBlock[4].innerHTML === 'o' && arrBlock[5].innerHTML === 'o')
   || (arrBlock[6].innerHTML === 'o' && arrBlock[7].innerHTML === 'o' && arrBlock[8].innerHTML === 'o')
   || (arrBlock[0].innerHTML === 'o' && arrBlock[3].innerHTML === 'o' && arrBlock[6].innerHTML === 'o')
@@ -68,9 +67,8 @@ function checkWinner() {
     winnerO.style.display = 'block';
     game.style.opacity = 0.4;
     game.style['z-index'] = -1;
-  }
-
-  if (numberOfMoves === 9) {
+    game.removeEventListener('click', handleClick);
+  } else if (numberOfMoves === 9) {
     message.style.display = 'block';
     winnerXO.style.display = 'block';
     winnerX.style.display = 'none';
@@ -78,6 +76,7 @@ function checkWinner() {
     winnerAlert.style.display = 'none';
     game.style.opacity = 0.4;
     game.style['z-index'] = -1;
+    game.removeEventListener('click', handleClick);
   }
 }
 
